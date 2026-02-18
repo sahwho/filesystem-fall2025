@@ -260,6 +260,8 @@ public class PublicTestsFall2025 {
 		
 		fs.cd("gamma");
 		assertEquals(FileSystem.TOUCH_NEW_SUCCESSFUL, fs.touch("delta"));
+
+		Directory expectedDirectory = fs.getWorkingDirectory();
 		
 		ArrayList<String> expected = new ArrayList<String>();
 		expected.add("/delta");
@@ -267,6 +269,7 @@ public class PublicTestsFall2025 {
 		expected.add("/delta/gamma/delta");
 		
 		assertEquals(expected, fs.find("delta"));
+		assertEquals(expectedDirectory, fs.getWorkingDirectory());
 	}
 	
 	@Test
